@@ -1,0 +1,114 @@
+{
+  "meta": { "lang": "de" },
+  "page": { "title": "DevProjects.ch" },
+  "lang": { "label": "Sprache" },
+  "header": { "title": "Willkommen bei DevProjects.ch" },
+  "github": { "lead": "Mehr sehen oder mich kontaktieren auf " },
+  "intro": {
+    "lead": "Cloudfähiges Aufgabenmanagement mit Angular & Spring Boot. Unten findest du Endpunkte, Dokus und Health-Checks."
+  },
+  "labels": { "tech": "Technologien:" },
+  "links": {
+    "taskhub": {
+      "frontend": "Front-End App",
+      "ping": "API: Ping",
+      "health": "Actuator: Health",
+      "swagger": "Swagger UI",
+      "jacoco": "JaCoCo Report"
+    },
+    "orderflow": {
+      "ping": "OrderFlow API: Ping",
+      "health": "OrderFlow Actuator: Health",
+      "swagger": "OrderFlow Swagger UI",
+      "github": "GitHub: orderflow-cloud-backend",
+      "ui": {
+        "frontend": "Front-End App",
+        "swagger": "Back-End Swagger UI",
+        "github": "GitHub: orderflow-cloud-frontend"
+      }
+    },
+    "orchestrator": {
+      "ping": "Orchestrator API (ping)",
+      "pingHtml": "Orchestrator API (pingHtml)"
+    },
+    "dashboard": {
+      "info": "API: Info",
+      "time": "API: Zeit",
+      "news": "API: News",
+      "stats": "API: Statistiken"
+    },
+    "tasktrack": { "api": "TaskTrack Back-End API" },
+    "simpletask": { "api": "SimpleTask Back-End API" },
+    "sms": { "api": "SMS Back-End API" },
+    "cms": { "api": "CMS Back-End API" }
+  },
+  "project": {
+    "taskhub": {
+      "title": "TaskHub Cloud",
+      "desc": "Eine Plattform zum Erstellen, Aktualisieren und Verfolgen von Aufgaben mit Status, Besitzer und Fälligkeitsdatum — konzipiert für zuverlässige Deployments hinter einem Reverse Proxy.",
+      "tech": "Spring Boot 3.5 (YAML-Konfig), Java 21, Angular 19, TypeScript, REST API, Swagger UI, Spring Actuator, JaCoCo, Maven, Jenkins CI/CD, Tomcat 10.1, Hostpoint Nginx Proxy.",
+      "challenge": "<span class=\"tech\">Herausforderungen:</span> Stabiles Routing hinter einem Reverse Proxy und ein konsistenter Kontextpfad (<code>/taskhub-cloud</code>) für UI und API; betriebskritische Endpunkte (Swagger, Actuator, JaCoCo) sicher exponieren.<br/><span class=\"tech\">Lösungen:</span> Standardisierte Spring-<code>application.yml</code> mit festem <code>server.servlet.context-path</code>; expliziter CORS-Filter; Nginx-Proxy-Header für Forwarded Host/Proto; automatisierte Builds &amp; Deploys mit Jenkins; API-Verträge via Swagger geprüft; Testabdeckung mit JaCoCo."
+    },
+    "orderflow": {
+      "title": "OrderFlow API",
+      "desc": "Eine Backend-Order-Management-API, die saubere Schichten, Validierung und hohe Testabdeckung für Enterprise-Workflows demonstriert.",
+      "tech": "Spring Boot 3.5, Java 21, Spring Data JPA, Flyway, H2/MariaDB, Springdoc OpenAPI, Spring Actuator, Maven, JaCoCo, Tomcat 10.1, Hostpoint Nginx-Proxy.",
+      "challenge": "<span class=\"tech\">Herausforderungen:</span> Einen stabilen HTTP-API-Vertrag beizubehalten, während sich das Domänenmodell weiterentwickelt, und die API sicher hinter einem Reverse Proxy unter <code>/orderflow-api</code> zu betreiben.<br/><span class=\"tech\">Lösungen:</span> DTO/Mapper-Trennung für einen stabilen Vertrag, umfassende Unit- und Web-Slice-Tests, durch Flyway gesteuerte Datenbankmigrationen sowie eine explizite Konfiguration von Kontextpfad und CORS passend zur Nginx/Tomcat-Umgebung bei Hostpoint.",
+      "ui": {
+        "title": "OrderFlow Cloud (Front-End)",
+        "desc": "Eine Single-Page-Applikation in Angular, die die OrderFlow API konsumiert und es ermöglicht, Bestellungen direkt im Browser zu durchsuchen, anzulegen und zu verwalten.",
+        "tech": "Angular 19, TypeScript, Angular Router, REST-Client-Service, umgebungsabhängige API-Konfiguration, Produktionsbuild mit angepasstem base href, Deployment unter /orderflow-cloud/ auf Hostpoint.",
+        "challenge": "<span class=\"tech\">Herausforderungen:</span> Frontend-Routing und statische Assets hinter einem Reverse Proxy und einem eigenen Unterpfad (<code>/orderflow-cloud/</code>) zuverlässig zu halten, während das Backend unter <code>/orderflow-api</code> erreichbar ist.<br/><span class=\"tech\">Lösungen:</span> Verwendung von Angular-Environment-Files für die API-Basis-URL, Konfiguration von <code>baseHref</code> in <code>angular.json</code> für Produktionsbuilds und ein Deployment-Verzeichnis auf Hostpoint, das denselben Kontextpfad nutzt, damit Deep Links und Browser-Reloads stabil funktionieren."
+      }
+    },
+    "fxlite": {
+      "title": "FXLite",
+      "desc": "Ein schlanker Währungsrechner mit Echtzeitwechselkursen aus einer externen API.",
+      "tech": "Angular 19, TypeScript, Spring Boot 3, REST-API-Integration, ExchangeRate API, Tomcat, Hostpoint Nginx Proxy.",
+      "challenge": "Herausforderungen: CORS und API-Rate-Limits — gelöst durch korrekte Nginx-Proxy-Header und serverseitiges Caching."
+    },
+    "meteo": {
+      "title": "Meteo GPS",
+      "desc": "Eine Wetter-App mit aktuellen Bedingungen und 5-Tage-Vorhersage für beliebige Orte.",
+      "tech": "Angular, OpenWeather API, Spring Boot, REST-Endpunkte, Tomcat 10, JSON-Serialisierung.",
+      "challenge": "Herausforderungen: Lokalisierte Daten & Icons der OpenWeather API — gelöst durch einen sauberen Angular-Datenservice mit Caching und i18n-fähigen Labels."
+    },
+    "orchestrator": {
+      "title": "Orchestrator",
+      "desc": "Ein Koordinationstool zur Verwaltung und Überwachung mehrerer Backend-Microservices.",
+      "tech": "Spring-Boot-Microservices, REST-Kommunikation, Angular-Dashboard, Jenkins-Automatisierung.",
+      "challenge": "Herausforderungen: Synchronisation mehrerer Microservices in einer Oberfläche — gelöst mit einem zentralen Gateway und standardisierten REST-Antworten."
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "desc": "Ein Echtzeit-Analytics-Dashboard mit News, Systemstatus und Live-Visualisierungen.",
+      "tech": "Angular, Spring Boot, REST-API, JSON-Feeds, Jenkins CI/CD, Chart.js für Visualisierung.",
+      "challenge": "Herausforderungen: Kombination mehrerer APIs mit unterschiedlichen Strukturen — gelöst mit einheitlichen DTOs und Caching-Schichten im Backend."
+    },
+    "tasktrack": {
+      "title": "TaskTrack",
+      "desc": "Eine Aufgaben-App zum schnellen Erstellen, Aktualisieren und Verfolgen für Teams oder Einzelne.",
+      "tech": "Angular, Spring Boot, Java 21, REST API, MySQL, Maven, Tomcat.",
+      "challenge": "Herausforderungen: Reibungslose Kommunikation Frontend↔Backend — gelöst durch klare /api-Struktur und Tests mit Postman + Swagger."
+    },
+    "simpletask": {
+      "title": "SimpleTask",
+      "desc": "Eine minimalistische To-do-App, welche CRUD-Funktionalität mit Angular und Spring Boot demonstriert.",
+      "tech": "Angular, TypeScript, Spring Boot, REST API, HTML/CSS.",
+      "challenge": "Herausforderungen: Zustandsaktualisierung nach CRUD-Operationen — gelöst mit reaktiven Formularen und sauberen Service-Observables."
+    },
+    "sms": {
+      "title": "SMS (Student Management System)",
+      "desc": "Plattform zur Verwaltung von Studierenden, Kursen und Einschreibungen mit vollständigem CRUD und i18n.",
+      "tech": "Spring Boot 3, Java 21, MySQL, Angular 19, TypeScript, Angular Material, ngx-translate, Maven, Jenkins CI/CD.",
+      "challenge": "Herausforderungen: CORS, Deployment unter Nginx-Proxy und Mehrsprachigkeit — gelöst durch Proxy-Header, getrennte Kontextpfade (/sms, /sms-backend) und dynamisch geladene Übersetzungen."
+    },
+    "cms": {
+      "title": "CMS (Contact Management System)",
+      "desc": "Kontaktverwaltung zum Hinzufügen, Bearbeiten, Suchen und Organisieren von Kontakten.",
+      "tech": "Angular, Spring Boot, Java 21, MySQL, REST-APIs, Tomcat 10.",
+      "challenge": "Herausforderungen: Große Datenmengen & Filter — gelöst mit serverseitiger Pagination und optimiertem DB-Index."
+    }
+  },
+  "footer": { "lastUpdated": "Zuletzt aktualisiert: Dezember 2025" }
+}

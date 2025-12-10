@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title data-i18n="page.title">DevProjects</title>
+  <!-- Welcome-page-only CSS now under _root/css -->
+  <link rel="stylesheet" href="_root/css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0 auto;
+      max-width: 950px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #ffffff; /* white background */
+      padding-bottom: 40px;
+    }
+
+    header {
+      background-color: #005bbc; /* dark header bar */
+      padding: 0px;
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      color: #ffffff; /* white title */
+      font-size: 2.2em;
+      margin: 0;
+      padding: 18px 0;
+    }
+
+    /* language switch */
+    .lang-switch {
+      position: absolute;
+      right: 14px;
+      top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lang-switch-label {
+      color: #fff;
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+
+    .lang-switch-buttons {
+      display: inline-flex;
+      border-radius: 14px;
+      padding: 2px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .lang-btn {
+      border: none;
+      padding: 3px 10px;
+      font-size: 0.85em;
+      cursor: pointer;
+      background: transparent;
+      color: #fff;
+      border-radius: 12px;
+      transition: background 0.15s, color 0.15s;
+      min-width: 34px;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .lang-btn.lang-active {
+      background: #ffffff;
+      color: #005bbc;
+      font-weight: 600;
+    }
+
+    .github-link {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .github-icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 35px; padding-bottom: 20px; border-bottom: 1px solid #ddd; }
+
+    li strong a {
+      font-size: 1.3em;
+      color: #0044cc;
+      text-decoration: none;
+    }
+    li strong a:hover { text-decoration: underline; }
+
+    .description { margin: 6px 0 10px 0; color: #444; }
+    .tech { color: #111; font-weight: bold; }
+    .details { margin-top: 6px; color: #555; }
+
+    ul.sub-links { list-style: disc; padding-left: 25px; margin-top: 8px; color: #555; }
+    ul.sub-links li { margin-bottom: 3px; }
+    ul.sub-links a { color: #0044cc; text-decoration: none; }
+    ul.sub-links a:hover { text-decoration: underline; }
+
+    em { color: #777; }
+    p, span { color: #333; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 data-i18n="header.title">Welcome to DevProjects.ch</h1>
+
+    <div class="lang-switch">
+      <span class="lang-switch-label" data-i18n="lang.label">Language</span>
+      <div class="lang-switch-buttons">
+        <button type="button" class="lang-btn lang-active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="de">DE</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="github-link">
+    <span data-i18n="github.lead">See more or contact me on </span>
+    <a href="https://github.com/giosuter" target="_blank" rel="noopener">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="github-icon"/>
+      <strong style="color:#0044cc;">github.com/giosuter</strong>
+    </a>
+  </div>
+
+  <p style="text-align:center;" data-i18n="intro.lead">
+    Cloud-ready task management built with Angular & Spring Boot. Explore endpoints, docs, and health checks below.
+  </p>
+
+  <ul>
+  
+    <!-- ============ OrderFlow Cloud (Front-End) ============ -->
+    <li>
+      <strong>
+        <a href="https://devprojects.ch/orderflow-cloud/"
+           target="_blank"
+           rel="noopener"
+           data-i18n="project.orderflow.ui.title">
+          OrderFlow Cloud (Front-End)
+        </a>
+      </strong>
+
+      <div class="description" data-i18n="project.orderflow.ui.desc">
+        A single-page Angular application that consumes the OrderFlow API, allowing you to browse, create, and manage orders from the browser.
+      </div>
+
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.orderflow.ui.tech">
+          Angular 19, TypeScript, Angular Router, REST client service layer, environment-based API configuration, production build with custom base href, deployed under /orderflow-cloud/ on Hostpoint.
+        </span>
+      </div>
+
+      <div class="details" data-i18n-html="project.orderflow.ui.challenge">
+        <span class="tech">Main Challenges:</span>
+        Keeping front-end routing and static assets working correctly behind a reverse proxy and a dedicated sub-path (<code>/orderflow-cloud/</code>) while talking to the backend at <code>/orderflow-api</code>.
+        <br/>
+        <span class="tech">Solutions:</span>
+        Using Angular environment files for the API base URL, configuring <code>baseHref</code> in <code>angular.json</code> for production builds, and aligning the deployment folder on Hostpoint with the same context path to ensure deep links and browser refreshes work reliably.
+      </div>
+
+      <ul class="sub-links">
+        <li>
+          <a href="https://devprojects.ch/orderflow-cloud/"
+             target="_blank"
+             rel="noopener"
+             data-i18n="links.orderflow.ui.frontend">
+            Front-End App
+          </a>
+        </li>
+        <li>
+          <a href="https://devprojects.ch/orderflow-api/swagger-ui/index.html"
+             target="_blank"
+             rel="noopener"
+             data-i18n="links.orderflow.ui.swagger">
+            Back-End Swagger UI
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/giosuter/orderflow-cloud-frontend"
+             target="_blank"
+             rel="noopener"
+             data-i18n="links.orderflow.ui.github">
+            GitHub: orderflow-cloud-frontend
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- =================================================== -->
+      
+    <!-- ============ OrderFlow API (Back-End) ============ -->
+    <li>
+      <strong>
+        <a href="https://devprojects.ch/orderflow-api/swagger-ui/index.html"
+           target="_blank"
+           rel="noopener"
+           data-i18n="project.orderflow.title">
+          OrderFlow Cloud (Back-End, API)
+        </a>
+      </strong>
+
+      <div class="description" data-i18n="project.orderflow.desc">
+        A small order processing API demonstrating clean Spring Boot REST design, service layer testing, and deployment behind Tomcat on Hostpoint.
+      </div>
+
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.orderflow.tech">
+          Spring Boot 3.5, Java 21, REST API, Spring Data JPA, Flyway, H2/MariaDB, Maven, Springdoc OpenAPI, Tomcat 10.1, Hostpoint Nginx proxy.
+        </span>
+      </div>
+
+      <div class="details" data-i18n-html="project.orderflow.challenge">
+        <span class="tech">Main Challenges:</span>
+        Designing a clean service + controller split, achieving solid unit and slice test coverage, and keeping Swagger/Flyway working in dev and on Hostpoint.
+        <br/>
+        <span class="tech">Solutions:</span>
+        Thin controllers with a dedicated service layer, manual mapper with focused tests, Springdoc OpenAPI for contract-first thinking, Flyway migrations, and a Tomcat WAR deployment aligned with <code>/orderflow-api</code> context path.
+      </div>
+
+      <ul class="sub-links">
+        <li>
+          <a href="https://devprojects.ch/orderflow-api/api/ping"
+             target="_blank"
+             rel="noopener"
+             data-i18n="links.orderflow.ping">
+            API: Ping
+          </a>
+        </li>
+        <li>
+          <a href="https://devprojects.ch/orderflow-api/swagger-ui/index.html"
+             target="_blank"
+             rel="noopener"
+             data-i18n="links.orderflow.swagger">
+            Swagger UI
+          </a>
+        </li>
+        <li>
+          <a href="https://devprojects.ch/orderflow-api/actuator/health"
+             target="_blank"
+             rel="noopener"
+             data-i18n="links.orderflow.health">
+            Actuator: Health
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/giosuter/orderflow-cloud-backend"
+             target="_blank"
+             rel="noopener"
+             data-i18n="links.orderflow.github">
+            GitHub: orderflow-cloud-backend
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- =================================================== -->
+        
+    <!-- ================== FXLite (2nd) =================== -->
+    <li>
+      <strong><a href="https://devprojects.ch/fxlite/#/" target="_blank" data-i18n="project.fxlite.title">FXLite</a></strong>
+      <div class="description" data-i18n="project.fxlite.desc">A lightweight currency converter providing real-time exchange rates from an external API.</div>
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.fxlite.tech">Angular 19, TypeScript, Spring Boot 3, REST API integration, ExchangeRate API, Tomcat, Hostpoint Nginx proxy.</span>
+      </div>
+      <div class="details" data-i18n="project.fxlite.challenge">
+        Main Challenges: Handling CORS and API rate limits — solved by configuring proper Nginx proxy headers and server-side caching.
+      </div>
+    </li>
+    <!-- =================================================== -->
+    
+    <!-- ================= Meteo GPS (3rd) ================= -->  
+    <li>
+      <strong><a href="https://devprojects.ch/meteo" target="_blank" data-i18n="project.meteo.title">Meteo</a></strong>
+      <div class="description" data-i18n="project.meteo.desc">A weather application showing current conditions and a 5-day forecast for any global location.</div>
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.meteo.tech">Angular, OpenWeather API, Spring Boot, REST endpoints, Tomcat 10, JSON serialization.</span>
+      </div>
+      <div class="details" data-i18n="project.meteo.challenge">
+        Main Challenges: Displaying localized data and icons from the OpenWeather API — solved by creating a clean Angular data service with caching and i18n-ready labels.
+      </div>
+    </li>
+    <!-- =================================================== -->  
+    
+    <!-- =============== TaskHub Cloud (4th) =============== -->    
+    <li>
+      <strong><a href="https://devprojects.ch/taskhub-cloud/index.html" target="_blank" rel="noopener" data-i18n="project.taskhub.title">TaskHub Cloud</a></strong>
+      <div class="description" data-i18n="project.taskhub.desc">
+        A task management platform for creating, updating, and tracking tasks with status, ownership, and due dates — designed for reliable deployments behind a reverse proxy.
+      </div>
+
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.taskhub.tech">
+          Spring Boot 3.5 (YAML config), Java 21, Angular 19, TypeScript, REST API, Swagger UI, Spring Actuator, JaCoCo, Maven, Jenkins CI/CD, Tomcat 10.1, Hostpoint Nginx proxy.
+        </span>
+      </div>
+
+      <div class="details" data-i18n-html="project.taskhub.challenge">
+        <span class="tech">Main Challenges:</span>
+        Stable routing under a reverse proxy and consistent context paths (<code>/taskhub-cloud</code>) for both UI and API; exposing operational endpoints (Swagger, Actuator, JaCoCo) safely.
+        <br/>
+        <span class="tech">Solutions:</span>
+        Standardized Spring <code>application.yml</code> with fixed <code>server.servlet.context-path</code>; explicit CORS filter; Nginx proxy headers configured for forwarded host/proto; automated builds &amp; deploys via Jenkins; API contract verified via Swagger UI; test coverage reported with JaCoCo.
+      </div>
+
+      <ul class="sub-links">
+        <li><a href="https://devprojects.ch/taskhub-cloud/index.html" target="_blank" rel="noopener" data-i18n="links.taskhub.frontend">Front-End App</a></li>
+        <li><a href="https://devprojects.ch/taskhub-cloud/" target="_blank" rel="noopener" data-i18n="links.taskhub.backend">Back-End App</a></li>
+        <li><a href="https://devprojects.ch/taskhub-cloud/api/ping" target="_blank" rel="noopener" data-i18n="links.taskhub.ping">API: Ping</a></li>
+        <li><a href="https://devprojects.ch/taskhub-cloud/actuator/health" target="_blank" rel="noopener" data-i18n="links.taskhub.health">Actuator: Health</a></li>
+        <li><a href="https://devprojects.ch/taskhub-cloud/swagger-ui/index.html" target="_blank" rel="noopener" data-i18n="links.taskhub.swagger">Swagger UI</a></li>
+        <li><a href="https://devprojects.ch/taskhub-cloud/jacoco/index.html" target="_blank" rel="noopener" data-i18n="links.taskhub.jacoco">JaCoCo Report</a></li>
+      </ul>
+    </li>
+	<!-- ========================================================= -->     
+
+    <!-- ==== Orchestrator (unchanged position after TaskHub) ==== -->
+    <li>
+      <strong><a href="https://devprojects.ch/orchestrator" target="_blank" data-i18n="project.orchestrator.title">Orchestrator</a></strong>
+      <div class="description" data-i18n="project.orchestrator.desc">A coordination tool for managing and monitoring multiple backend microservices.</div>
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.orchestrator.tech">Spring Boot microservices, REST API communication, Angular dashboard, Jenkins automation.</span>
+      </div>
+      <div class="details" data-i18n="project.orchestrator.challenge">
+        Main Challenges: Synchronizing multiple microservices under one interface — solved by designing a central gateway and standardizing REST responses.
+      </div>
+      <ul class="sub-links">
+        <li><a href="https://devprojects.ch/orchestrator-backend/api/ping" target="_blank" data-i18n="links.orchestrator.ping">Orchestrator API (ping)</a></li>
+        <li><a href="https://devprojects.ch/orchestrator-backend/api/pingHtml" target="_blank" data-i18n="links.orchestrator.pingHtml">Orchestrator API (pingHtml)</a></li>
+      </ul>
+    </li>
+
+    <!-- Dashboard -->
+    <li>
+      <strong><a href="https://devprojects.ch/dashboard/" target="_blank" data-i18n="project.dashboard.title">Dashboard</a></strong>
+      <div class="description" data-i18n="project.dashboard.desc">A real-time analytics dashboard displaying news, system stats, and live data visualizations.</div>
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.dashboard.tech">Angular, Spring Boot, REST API, JSON feeds, Jenkins CI/CD, Chart.js for visualization.</span>
+      </div>
+      <div class="details" data-i18n="project.dashboard.challenge">
+        Main Challenges: Combining multiple APIs with different response structures — solved with unified DTO classes and caching layers on the backend.
+      </div>
+      <ul class="sub-links">
+        <li><a href="https://devprojects.ch/dashboard-backend/api/info" target="_blank" data-i18n="links.dashboard.info">API: Info</a></li>
+        <li><a href="https://devprojects.ch/dashboard-backend/api/time" target="_blank" data-i18n="links.dashboard.time">API: Time</a></li>
+        <li><a href="https://devprojects.ch/dashboard-backend/api/news" target="_blank" data-i18n="links.dashboard.news">API: News</a></li>
+        <li><a href="https://devprojects.ch/dashboard-backend/api/stats" target="_blank" data-i18n="links.dashboard.stats">API: Stats</a></li>
+      </ul>
+    </li>
+	<!-- =================================================== --> 
+	
+    <!-- ==================== TaskTrack ==================== -->
+    <li>
+      <strong><a href="https://devprojects.ch/tasktrack/" target="_blank" data-i18n="project.tasktrack.title">TaskTrack</a></strong>
+      <div class="description" data-i18n="project.tasktrack.desc">A task management app designed to create, update, and track tasks efficiently for teams or individuals.</div>
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.tasktrack.tech">Angular, Spring Boot, Java 21, REST API, MySQL, Maven, Tomcat.</span>
+      </div>
+      <div class="details" data-i18n="project.tasktrack.challenge">
+        Main Challenges: Establishing smooth front-end to back-end communication — solved by defining a clean /api structure and testing with Postman + Swagger.
+      </div>
+      <ul class="sub-links">
+        <li><a href="https://devprojects.ch/tasktrack-backend/api/tasks" target="_blank" data-i18n="links.tasktrack.api">TaskTrack Back-End API</a></li>
+      </ul>
+    </li>
+	<!-- =================================================== -->
+	
+    <!-- =================== SimpleTask ==================== -->
+    <li>
+      <strong><a href="https://devprojects.ch/simpletask/" target="_blank" data-i18n="project.simpletask.title">SimpleTask</a></strong>
+      <div class="description" data-i18n="project.simpletask.desc">A minimal to-do list app demonstrating CRUD functionality with Angular and Spring Boot.</div>
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.simpletask.tech">Angular, TypeScript, Spring Boot, REST API, HTML/CSS.</span>
+      </div>
+      <div class="details" data-i18n="project.simpletask.challenge">
+        Main Challenges: Managing Angular state updates after CRUD operations — solved by using reactive forms and clean service observables.
+      </div>
+      <ul class="sub-links">
+        <li><a href="https://devprojects.ch/simpletask-backend/api/ping" target="_blank" data-i18n="links.simpletask.api">SimpleTask Back-End API</a></li>
+      </ul>
+    </li>
+	<!-- =================================================== -->
+	
+    <!-- ========= SMS (Student Managenment System) ======== -->
+    <li>
+      <strong><a href="https://devprojects.ch/sms/" target="_blank" data-i18n="project.sms.title">SMS (Student Management System)</a></strong>
+      <div class="description" data-i18n="project.sms.desc">A university management platform for handling students, courses, and enrollments with full CRUD and i18n support.</div>
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.sms.tech">Spring Boot 3, Java 21, MySQL, Angular 19, TypeScript, Angular Material, ngx-translate, Maven, Jenkins CI/CD.</span>
+      </div>
+      <div class="details" data-i18n="project.sms.challenge">
+        Main Challenges: Dealing with CORS, deployment under Nginx proxy, and full multilingual support — solved by configuring proxy headers, using distinct context paths (/sms, /sms-backend), and loading translation JSON files dynamically.
+      </div>
+      <ul class="sub-links">
+        <li><a href="https://devprojects.ch/sms-backend/api/students" target="_blank" data-i18n="links.sms.api">SMS Back-End API</a></li>
+      </ul>
+    </li>
+	<!-- =================================================== -->
+	
+    <!-- ========= CMS (Coontact Management System) ======== -->
+    <li>
+      <strong><a href="https://devprojects.ch/cms/" target="_blank" data-i18n="project.cms.title">CMS (Contact Management System)</a></strong>
+      <div class="description" data-i18n="project.cms.desc">A contact management system to add, edit, search, and organize personal or business contacts.</div>
+      <div class="details">
+        <span class="tech" data-i18n="labels.tech">Technologies:</span>
+        <span data-i18n="project.cms.tech">Angular, Spring Boot, Java 21, MySQL, REST APIs, Tomcat 10.</span>
+      </div>
+      <div class="details" data-i18n="project.cms.challenge">
+        Main Challenges: Handling large datasets and advanced filtering — solved using server-side pagination and optimized database indexing.
+      </div>
+      <ul class="sub-links">
+        <li><a href="https://devprojects.ch/cms-backend/api/contacts" target="_blank" data-i18n="links.cms.api">CMS Back-End API</a></li>
+      </ul>
+    </li>
+	<!-- =================================================== -->
+	    
+  </ul>
+
+  <p style="text-align:center;"><em data-i18n="footer.lastUpdated">Last updated: December 2025</em></p>
+
+  <script>
+    // --- simple i18n loader (external JSON) with auto-detect + persistence
+    const I18N_ATTR = 'data-i18n';
+    const I18N_HTML_ATTR = 'data-i18n-html';
+    const LANG_BUTTONS = document.querySelectorAll('.lang-btn');
+
+    async function loadTranslations(lang) {
+      // IMPORTANT: welcome-page i18n lives under /_root/i18n/
+      const file = `/_root/i18n/${lang}.json`;
+      try {
+        const res = await fetch(file, { cache: 'no-store' });
+        if (!res.ok) throw new Error('Failed to load ' + file);
+        return await res.json();
+      } catch (e) {
+        if (lang !== 'en') return loadTranslations('en');
+        console.warn('i18n fallback failed:', e);
+        return {};
+      }
+    }
+
+    function applyTranslations(dict) {
+      // textContent replacements
+      document.querySelectorAll(`[${I18N_ATTR}]`).forEach(node => {
+        const key = node.getAttribute(I18N_ATTR);
+        const val = key.split('.').reduce((o, k) => (o || {})[k], dict);
+        if (typeof val === 'string') node.textContent = val;
+      });
+      // innerHTML replacements (for strings containing markup like <code>)
+      document.querySelectorAll(`[${I18N_HTML_ATTR}]`).forEach(node => {
+        const key = node.getAttribute(I18N_HTML_ATTR);
+        const val = key.split('.').reduce((o, k) => (o || {})[k], dict);
+        if (typeof val === 'string') node.innerHTML = val;
+      });
+      // document <html lang="..">
+      document.documentElement.setAttribute('lang', dict?.meta?.lang || 'en');
+      // <title>
+      const titleKey = 'page.title';
+      const titleVal = titleKey.split('.').reduce((o, k) => (o || {})[k], dict);
+      if (titleVal) document.title = titleVal;
+    }
+
+    function updateActiveLangButton(lang) {
+      LANG_BUTTONS.forEach(btn => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('lang-active', isActive);
+      });
+    }
+
+    async function setLanguage(lang) {
+      localStorage.setItem('devprojects.lang', lang);
+      const dict = await loadTranslations(lang);
+      applyTranslations(dict);
+      updateActiveLangButton(lang);
+    }
+
+    // init: from storage -> browser auto-detect
+    (async function initI18n() {
+      const stored = localStorage.getItem('devprojects.lang');
+      const auto = navigator.language && navigator.language.toLowerCase().startsWith('de') ? 'de' : 'en';
+      const lang = stored || auto;
+      await setLanguage(lang);
+    })();
+
+    LANG_BUTTONS.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        setLanguage(lang);
+      });
+    });
+  </script>
+
+</body>
+</html>
